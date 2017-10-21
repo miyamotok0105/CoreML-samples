@@ -122,7 +122,8 @@ extension UIImage {
         
         for i in stride(from: 0, to: pixelData.count, by: 4) {
             
-            let val = (CGFloat(pixelData[i]) + CGFloat(pixelData[i+1]) + CGFloat(pixelData[i+2])) / (255.0 * 3.0)
+            var val = (CGFloat(pixelData[i]) + CGFloat(pixelData[i+1]) + CGFloat(pixelData[i+2]))
+            val = val / (255.0 * 3.0)
             
             result.append(val)
         }

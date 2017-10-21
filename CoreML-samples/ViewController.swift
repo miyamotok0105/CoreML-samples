@@ -48,6 +48,19 @@ class ViewController: UIViewController {
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func cameraLaunchAction(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let ipc = UIImagePickerController()
+            ipc.sourceType = .camera
+            ipc.delegate = self
+            ipc.allowsEditing = true
+            present(ipc, animated: true, completion: nil)
+        } else {
+            print("canot use camera")
+        }
+    }
+    
+    
     @IBAction func predict(_ sender: Any) {
         
         switch (segmentedControl.selectedSegmentIndex) {
@@ -80,18 +93,17 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         // The input image size should be 224x224 for ResNet
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage,
+        guard let image = info[UIImagePickerControllerEditedImage] as? UIImage,
             let resized = image.resize(size: CGSize(width: 224, height: 224)) else {
-                
                 return
         }
-        
-        imageView.image  = resized
         resultLabel.text = ""
         probsLabel.text  = ""
-        imagePicker.dismiss(animated: true, completion: nil)
+        imageView.image  = resized
         
+        dismiss(animated: true, completion: nil)
     }
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         

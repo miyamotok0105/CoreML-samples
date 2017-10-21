@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoreMl_ResNet_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoreML_samples" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,21 +21,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klh-AE-I2U">
-                                <rect key="frame" x="96" y="536" width="182" height="40"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ENI-l6-sNH">
+                                <rect key="frame" x="75" y="28" width="224" height="224"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="gWQ-DZ-n28"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qA-qY-qZW">
+                                <rect key="frame" x="75" y="328" width="224" height="122"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="122" id="iA3-V8-xa2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xup-jN-aCr">
+                                <rect key="frame" x="75" y="278" width="224" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gev-HG-a9o">
+                                <rect key="frame" x="96" y="477" width="182" height="29"/>
+                                <segments>
+                                    <segment title="Resnet"/>
+                                    <segment title="Mnist"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4La-CW-uUJ">
+                                <rect key="frame" x="96" y="518" width="182" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Open Photo Library">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Drk-b0-AQx"/>
+                                </constraints>
+                                <state key="normal" title="Take it">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="openPhotoLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Y0-Hj-De3"/>
+                                    <action selector="cameraLaunchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wwG-sz-IG4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVH-Qs-dWv">
-                                <rect key="frame" x="96" y="601" width="182" height="40"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVH-Qs-dWv">
+                                <rect key="frame" x="96" y="566" width="182" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="scx-pT-7gJ"/>
+                                </constraints>
                                 <state key="normal" title="Predict">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -42,34 +75,29 @@
                                     <action selector="predict:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1my-MB-DVH"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ENI-l6-sNH">
-                                <rect key="frame" x="75" y="28" width="224" height="224"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qA-qY-qZW">
-                                <rect key="frame" x="75" y="328" width="224" height="122"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xup-jN-aCr">
-                                <rect key="frame" x="75" y="278" width="224" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Gev-HG-a9o">
-                                <rect key="frame" x="96" y="477" width="182" height="29"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <segments>
-                                    <segment title="Resnet"/>
-                                    <segment title="Mnist"/>
-                                </segments>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.85999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7qA-qY-qZW" firstAttribute="top" secondItem="xup-jN-aCr" secondAttribute="bottom" constant="20" id="49u-bI-Alg"/>
+                            <constraint firstItem="ENI-l6-sNH" firstAttribute="centerX" secondItem="4La-CW-uUJ" secondAttribute="centerX" id="4fe-6d-UBC"/>
+                            <constraint firstItem="4La-CW-uUJ" firstAttribute="top" secondItem="Gev-HG-a9o" secondAttribute="bottom" constant="13" id="5jz-hM-zjf"/>
+                            <constraint firstItem="ENI-l6-sNH" firstAttribute="trailing" secondItem="7qA-qY-qZW" secondAttribute="trailing" id="8S5-6Z-3Bo"/>
+                            <constraint firstItem="xup-jN-aCr" firstAttribute="top" secondItem="ENI-l6-sNH" secondAttribute="bottom" constant="26" id="9RA-Uj-1B5"/>
+                            <constraint firstItem="ENI-l6-sNH" firstAttribute="trailing" secondItem="xup-jN-aCr" secondAttribute="trailing" id="9pk-Zm-DZI"/>
+                            <constraint firstItem="NVH-Qs-dWv" firstAttribute="trailing" secondItem="4La-CW-uUJ" secondAttribute="trailing" id="BGU-8O-I09"/>
+                            <constraint firstItem="ENI-l6-sNH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Fwj-OD-XL9"/>
+                            <constraint firstItem="NVH-Qs-dWv" firstAttribute="top" secondItem="4La-CW-uUJ" secondAttribute="bottom" constant="8" symbolic="YES" id="KQR-kH-W6s"/>
+                            <constraint firstItem="NVH-Qs-dWv" firstAttribute="leading" secondItem="4La-CW-uUJ" secondAttribute="leading" id="NXt-3I-6Sc"/>
+                            <constraint firstItem="ENI-l6-sNH" firstAttribute="leading" secondItem="xup-jN-aCr" secondAttribute="leading" id="OrZ-zJ-TTQ"/>
+                            <constraint firstItem="ENI-l6-sNH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tu4-6F-V21"/>
+                            <constraint firstItem="ENI-l6-sNH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="59" id="YEN-gc-Bo2"/>
+                            <constraint firstItem="7qA-qY-qZW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="328" id="aI5-e1-aZ4"/>
+                            <constraint firstItem="ENI-l6-sNH" firstAttribute="leading" secondItem="7qA-qY-qZW" secondAttribute="leading" id="bpd-ai-tAw"/>
+                            <constraint firstItem="4La-CW-uUJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="bsx-lT-5Oj"/>
+                            <constraint firstItem="Gev-HG-a9o" firstAttribute="top" secondItem="7qA-qY-qZW" secondAttribute="bottom" constant="27" id="dtR-QY-dCD"/>
+                            <constraint firstItem="ENI-l6-sNH" firstAttribute="centerX" secondItem="Gev-HG-a9o" secondAttribute="centerX" id="hxp-0O-fjI"/>
+                            <constraint firstItem="4La-CW-uUJ" firstAttribute="leading" secondItem="Gev-HG-a9o" secondAttribute="leading" id="lSg-Cw-qF0"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="ENI-l6-sNH" id="TmV-dV-S4Q"/>
